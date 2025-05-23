@@ -1,0 +1,12 @@
+<!-- templates/recommend.html -->
+<form method="POST">
+    <label for="destination">Enter destination:</label>
+    <input type="text" name="destination" required>
+    <button type="submit">Get Recommendations</button>
+</form>
+
+<ul>
+{% for place in recommendations %}
+    <li>{{ place }}</li>
+{% endfor %}
+</ul>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uttarakhand Tourism</title>
+    <!-- Include Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+    <!-- Header Section -->
+    <header class="bg-blue-600 text-white py-6">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-4xl font-bold">Welcome to Uttarakhand Tourism</h1>
+            <p class="mt-2 text-xl">Explore the beauty of Uttarakhand with our reviews and services</p>
+        </div>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <ul class="flex space-x-6 justify-center text-lg">
+                <li><a href="{{ url_for('register') }}" class="hover:text-blue-600 transition duration-200">Register</a></li>
+                <li><a href="{{ url_for('login') }}" class="hover:text-blue-600 transition duration-200">Login</a></li>
+                <li><a href="{{ url_for('review') }}" class="hover:text-blue-600 transition duration-200">Submit a Review</a></li>
+                <li><a href="{{ url_for('complaint') }}" class="hover:text-blue-600 transition duration-200">File a Complaint</a></li>
+                <li><a href="{{ url_for('helplines') }}" class="hover:text-blue-600 transition duration-200">Emergency Helplines</a></li>
+                <li><a href="{{ url_for('recommend') }}">Tourist Recommendations</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Recent Reviews Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-8">Recent Reviews</h2>
+
+            <!-- Reviews Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for review in reviews %}
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                        <h3 class="text-xl font-semibold text-blue-600">{{ review.place_name }}</h3>
+                        <p class="text-gray-600 mt-2">Rating: {{ review.rating }} / 5</p>
+                        <p class="text-gray-700 mt-4">{{ review.review_text }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-blue-600 text-white py-6">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p>&copy; 2025 Uttarakhand Tourism. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
